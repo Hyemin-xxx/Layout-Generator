@@ -3,6 +3,7 @@
 **스마트팩토리 캡스톤 디자인 — 바이오의약품(mAb) 제조시설 GMP Layout 자동 생성**
 
 > 시각 산출물 디자인은 [DESIGN.md](DESIGN.md) (Silicon Valley creative-director-grade 디자인 시스템) 룰을 따릅니다.
+> **엔진이 어떻게 도면을 만드는지** 처음 보는 분은 → [docs/HOW_IT_WORKS.md](docs/HOW_IT_WORKS.md)
 
 URS(User Requirements Specification)를 입력받아 EU GMP Annex 1과 사내 Layout 설계 원리 13조를 준수하는
 바이오 제조시설 도면을 자동 생성합니다. 이후 강화학습으로 도면 품질을 진화시키고, 결과를 연구논문으로 정리합니다.
