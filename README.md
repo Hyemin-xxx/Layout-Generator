@@ -161,3 +161,4 @@ python -m src.cli rl-rollout output/best_policy.zip --n 20
 
 - **[Step 0] 2026-05-26** — 자료 인수, 메모리/계획 수립. README + ARCHITECTURE 작성.
 - **[Step 1] 2026-05-26** — Knowledge Base 6종 작성 (rooms_mab, equipment, grade_colors, acph_table, gowning_table, flow_policy_defaults). URS PDF + Layout Logic 표를 그대로 JSON화. 룰 코드와 데이터 분리 — modality 확장 시 KB만 추가.
+- **[Step 2] 2026-05-26** — Pydantic v2 스키마 작성 (`src/rule_engine/schemas.py`). URSInput(5 sub-spec) + RuleEngineOutput(7 블록). 테스트 4/4 통과. extra='forbid'로 오타 방지.
