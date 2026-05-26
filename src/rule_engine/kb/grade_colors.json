@@ -1,0 +1,43 @@
+{
+  "_source": "GMP Layout Logic_0510 §4 (Room 청정등급 부여)",
+  "_note": "도면 표시 시 50% 투명도 적용. 장비가 잘 보이도록 함.",
+  "grades": {
+    "A": {
+      "background": "#00A85A",
+      "pattern": "diagonal-black",
+      "transparency_pct": 50,
+      "description": "Green-diagonal Black"
+    },
+    "B": {
+      "background": "#00A85A",
+      "pattern": "solid",
+      "transparency_pct": 50,
+      "description": "Green"
+    },
+    "C": {
+      "background": "#FFD93D",
+      "pattern": "solid",
+      "transparency_pct": 50,
+      "description": "Yellow"
+    },
+    "D": {
+      "background": "#4A90E2",
+      "pattern": "solid",
+      "transparency_pct": 50,
+      "description": "Blue"
+    },
+    "CNC": {
+      "background": "#9E9E9E",
+      "pattern": "dotted-black",
+      "transparency_pct": 50,
+      "description": "Gray-dotted Black"
+    },
+    "NC": {
+      "background": "#BDBDBD",
+      "pattern": "solid",
+      "transparency_pct": 50,
+      "description": "Gray"
+    }
+  },
+  "order_high_to_low": ["A", "B", "C", "D", "CNC", "NC"]
+}

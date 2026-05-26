@@ -1,0 +1,103 @@
+{
+  "_source": "URS_ConceptualDesign for layout_051.pdf [제조 장비 규격서]",
+  "_units": "W*D*H in mm, weight in kg",
+  "_note": "Room별 equipment_room_key 매칭으로 조회. 각 항목은 single equipment instance.",
+  "by_room": {
+    "Media preparation": [
+      {"name": "Weigh booth",          "W": 3500, "D": 3000, "H": 3000, "weight": 500,  "max_op_weight": 600,   "step": "P1-1"},
+      {"name": "Mixing Tank-1 100L",   "W": 2000, "D": 2000, "H": 2000, "weight": 1000, "max_op_weight": 1100,  "step": "P1-2"},
+      {"name": "Mixing Tank-2 500L",   "W": 2500, "D": 2000, "H": 3000, "weight": 1500, "max_op_weight": 2000,  "step": "P1-2"},
+      {"name": "Mixing Tank-3 2000L",  "W": 3000, "D": 2500, "H": 4000, "weight": 2000, "max_op_weight": 4000,  "step": "P1-2"},
+      {"name": "Mixing Tank-4 10000L", "W": 4000, "D": 3000, "H": 5000, "weight": 3000, "max_op_weight": 13000, "step": "P1-2"}
+    ],
+    "Buffer preparation": [
+      {"name": "Weigh booth",          "W": 3500, "D": 3000, "H": 3000, "weight": 500,  "max_op_weight": 600,   "step": "P2-1"},
+      {"name": "Mixing Tank-5 500L",   "W": 2500, "D": 2000, "H": 3000, "weight": 1500, "max_op_weight": 2000,  "step": "P2-2"},
+      {"name": "Mixing Tank-6 2000L",  "W": 3000, "D": 2500, "H": 4000, "weight": 2000, "max_op_weight": 4000,  "step": "P2-2"},
+      {"name": "Mixing Tank-7 4000L",  "W": 3500, "D": 2500, "H": 5000, "weight": 2000, "max_op_weight": 6000,  "step": "P2-2"},
+      {"name": "Mixing Tank-8 10000L", "W": 4000, "D": 3000, "H": 5000, "weight": 4000, "max_op_weight": 14000, "step": "P2-2"}
+    ],
+    "Inoculation": [
+      {"name": "Isolator",     "W": 4000, "D": 2000, "H": 3000, "weight": 1000, "max_op_weight": 1000, "step": "P3-1"},
+      {"name": "Centrifuge",   "W": 1000, "D": 600,  "H": 500,  "weight": 60,   "max_op_weight": 60,   "step": "P3-1"},
+      {"name": "Incubator",    "W": 1200, "D": 800,  "H": 600,  "weight": 150,  "max_op_weight": 150,  "step": "P3-2"},
+      {"name": "Cleanbench",   "W": 2000, "D": 800,  "H": 2000, "weight": 200,  "max_op_weight": 200,  "step": "P3-2"}
+    ],
+    "Cell Culture": [
+      {"name": "Wave Reactor 20L",        "W": 1200, "D": 600,  "H": 800,  "weight": 200,  "max_op_weight": 220,   "step": "P4-1"},
+      {"name": "BioReactor 100L",         "W": 2000, "D": 2000, "H": 2500, "weight": 1000, "max_op_weight": 1100,  "step": "P4-2"},
+      {"name": "BioReactor 500L",         "W": 2500, "D": 2000, "H": 3500, "weight": 1500, "max_op_weight": 2000,  "step": "P4-3"},
+      {"name": "BioReactor 2000L",        "W": 3000, "D": 2500, "H": 4500, "weight": 2000, "max_op_weight": 4000,  "step": "P4-4"},
+      {"name": "BioReactor 10000L",       "W": 4000, "D": 3000, "H": 5500, "weight": 3000, "max_op_weight": 11000, "step": "P4-5", "tall_equipment": true},
+      {"name": "Storage tank-1 2000L",    "W": 3000, "D": 2500, "H": 4000, "weight": 1500, "max_op_weight": 3500,  "step": "P4-5"}
+    ],
+    "Harvest": [
+      {"name": "Continuous centrifuge",     "W": 3000, "D": 3000, "H": 3000, "weight": 2000, "max_op_weight": 2500,  "step": "P5-1"},
+      {"name": "Depth filter system #1",    "W": 2000, "D": 600,  "H": 1800, "weight": 300,  "max_op_weight": 500,   "step": "P5-2"},
+      {"name": "Depth filter system #2",    "W": 2000, "D": 600,  "H": 1800, "weight": 300,  "max_op_weight": 500,   "step": "P5-2"},
+      {"name": "Storage tank-2 10000L",     "W": 3000, "D": 3000, "H": 5000, "weight": 1500, "max_op_weight": 11500, "step": "P5-2"}
+    ],
+    "Purification 1": [
+      {"name": "Chromatography system 1", "W": 2000, "D": 1200, "H": 2000, "weight": 500,  "max_op_weight": 500,   "step": "P6-1"},
+      {"name": "Column 1500mm",           "W": 2500, "D": 2000, "H": 3000, "weight": 2000, "max_op_weight": 2200,  "step": "P6-1"},
+      {"name": "Storage tank-3 4000L",    "W": 3500, "D": 2500, "H": 5000, "weight": 2000, "max_op_weight": 2000,  "step": "P6-1"},
+      {"name": "Storage tank-4 3000L",    "W": 3000, "D": 2500, "H": 4500, "weight": 2000, "max_op_weight": 5000,  "step": "P6-1"},
+      {"name": "Buffer tank-1 2000L",     "W": 3000, "D": 2500, "H": 4000, "weight": 1500, "max_op_weight": 3500,  "step": "P6-1"},
+      {"name": "Buffer tank-2 2000L",     "W": 3000, "D": 2500, "H": 4000, "weight": 1500, "max_op_weight": 3500,  "step": "P6-1"},
+      {"name": "Buffer tank-3 2000L",     "W": 3000, "D": 2500, "H": 4000, "weight": 1500, "max_op_weight": 3500,  "step": "P6-1"},
+      {"name": "Buffer tank-4 4000L",     "W": 3500, "D": 2500, "H": 5000, "weight": 2000, "max_op_weight": 6000,  "step": "P6-1"},
+      {"name": "Buffer tank-5 4000L",     "W": 3500, "D": 2500, "H": 5000, "weight": 2000, "max_op_weight": 6000,  "step": "P6-1"},
+      {"name": "Buffer tank-6 4000L",     "W": 3500, "D": 2500, "H": 5000, "weight": 2000, "max_op_weight": 6000,  "step": "P6-1"},
+
+      {"name": "Reactor 5000L",           "W": 3000, "D": 2500, "H": 5000, "weight": 1500, "max_op_weight": 1500,  "step": "P6-2"},
+      {"name": "Acid tank 200L",          "W": 2000, "D": 2000, "H": 2500, "weight": 500,  "max_op_weight": 700,   "step": "P6-2"},
+      {"name": "Base tank 200L",          "W": 2000, "D": 2000, "H": 2500, "weight": 500,  "max_op_weight": 700,   "step": "P6-2"},
+      {"name": "Depth filter system VI",  "W": 2000, "D": 600,  "H": 1800, "weight": 300,  "max_op_weight": 500,   "step": "P6-2"},
+      {"name": "Storage tank-5 5000L",    "W": 3000, "D": 2500, "H": 5000, "weight": 1500, "max_op_weight": 1500,  "step": "P6-2"},
+
+      {"name": "Chromatography system 2", "W": 2000, "D": 1200, "H": 2000, "weight": 500,  "max_op_weight": 500,   "step": "P6-3"},
+      {"name": "Column 1000mm",           "W": 2000, "D": 2000, "H": 2500, "weight": 1800, "max_op_weight": 2000,  "step": "P6-3"},
+      {"name": "Storage tank-6 8000L",    "W": 3500, "D": 3000, "H": 5500, "weight": 2500, "max_op_weight": 10000, "step": "P6-3"},
+
+      {"name": "Chromatography system 3", "W": 2000, "D": 1200, "H": 2000, "weight": 500,  "max_op_weight": 500,   "step": "P6-4"},
+      {"name": "Column 800mm",            "W": 2000, "D": 2000, "H": 2500, "weight": 1500, "max_op_weight": 1600,  "step": "P6-4"},
+      {"name": "Storage tank-7 2000L",    "W": 3000, "D": 2500, "H": 4000, "weight": 1500, "max_op_weight": 3500,  "step": "P6-4"},
+
+      {"name": "Nano filtration system",  "W": 2000, "D": 800,  "H": 1500, "weight": 500,  "max_op_weight": 500,   "step": "P6-5"},
+      {"name": "Storage tank-8 2000L",    "W": 3000, "D": 2500, "H": 4000, "weight": 1500, "max_op_weight": 1500,  "step": "P6-5"}
+    ],
+    "Purification 2": [
+      {"name": "TFF system",          "W": 2500, "D": 2000, "H": 2500, "weight": 1000, "max_op_weight": 1000, "step": "P7-1"},
+      {"name": "Holding tank 500L",   "W": 2500, "D": 2000, "H": 3000, "weight": 800,  "max_op_weight": 1300, "step": "P7-1"},
+      {"name": "Buffer tank-7 5000L", "W": 3500, "D": 2500, "H": 5000, "weight": 2000, "max_op_weight": 7000, "step": "P7-1"},
+      {"name": "Storage tank-9 500L", "W": 2500, "D": 2000, "H": 3000, "weight": 800,  "max_op_weight": 800,  "step": "P7-1"},
+      {"name": "Filtration system",   "W": 2000, "D": 800,  "H": 1500, "weight": 200,  "max_op_weight": 200,  "step": "P7-2"},
+      {"name": "Bulk fill system",    "W": 2000, "D": 800,  "H": 1500, "weight": 200,  "max_op_weight": 200,  "step": "P7-3"}
+    ],
+    "Preparation": [
+      {"name": "Cleanbooth", "W": 3000, "D": 2500, "H": 3000, "weight": 500,  "max_op_weight": 600},
+      {"name": "Autoclave",  "W": 3000, "D": 2500, "H": 3000, "weight": 2000, "max_op_weight": 2000}
+    ],
+    "Washing": [
+      {"name": "COP system", "W": 3000, "D": 2500, "H": 3000, "weight": 1500, "max_op_weight": 1500}
+    ],
+    "DS storage": [
+      {"name": "Deep freezer 1", "W": 1200, "D": 1000, "H": 2000, "weight": 200, "max_op_weight": 250},
+      {"name": "Deep freezer 2", "W": 1200, "D": 1000, "H": 2000, "weight": 200, "max_op_weight": 250},
+      {"name": "Deep freezer 3", "W": 1200, "D": 1000, "H": 2000, "weight": 200, "max_op_weight": 250},
+      {"name": "Deep freezer 4", "W": 1200, "D": 1000, "H": 2000, "weight": 200, "max_op_weight": 250}
+    ],
+    "IPC": [
+      {"name": "Deep freezer", "W": 900, "D": 1000, "H": 2000, "weight": 150, "max_op_weight": 200},
+      {"name": "Freezer",      "W": 900, "D": 1000, "H": 2000, "weight": 150, "max_op_weight": 200},
+      {"name": "Refrigerator", "W": 900, "D": 1000, "H": 2000, "weight": 150, "max_op_weight": 200}
+    ],
+    "Cell bank storage": [
+      {"name": "Cell tank (nitrogen) 1", "W": 1000, "D": 1000, "H": 1500, "weight": 200, "max_op_weight": 200},
+      {"name": "Cell tank (nitrogen) 2", "W": 1000, "D": 1000, "H": 1500, "weight": 200, "max_op_weight": 200}
+    ],
+    "CIP supply": [
+      {"name": "CIP station", "W": 5000, "D": 2000, "H": 4000, "weight": 2000, "max_op_weight": 4000}
+    ]
+  }
+}

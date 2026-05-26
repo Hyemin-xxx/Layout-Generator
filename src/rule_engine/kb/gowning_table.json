@@ -1,0 +1,11 @@
+{
+  "_source": "GMP Layout Logic_0510 출입복장 시트",
+  "grades": {
+    "A": {"gowning_type": "무균복", "gowning_method": "over gowning"},
+    "B": {"gowning_type": "무균복", "gowning_method": "over gowning"},
+    "C": {"gowning_type": "무진복", "gowning_method": "over gowning"},
+    "D": {"gowning_type": "스크럽", "gowning_method": "degowning and gowning"},
+    "CNC": {"gowning_type": "스크럽", "gowning_method": "degowning and gowning"},
+    "NC": {"gowning_type": "일상복", "gowning_method": "none"}
+  }
+}

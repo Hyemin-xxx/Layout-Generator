@@ -1,0 +1,42 @@
+{
+  "_source": "GMP Layout Logic_0510 §1, §8 + URS_ConceptualDesign",
+  "_note": "modality별 기본 flow 정책. URS에서 override 가능.",
+  "mAb": {
+    "one_way_flow_process_rooms": [
+      "R_INOCULATION",
+      "R_CELL_CULTURE",
+      "R_HARVEST",
+      "R_PURIFICATION_1"
+    ],
+    "one_way_flow_terminator": "virus_filtration",
+    "supply_return_corridor_separate": true,
+    "supply_return_direct_connection_allowed": false,
+    "airlock_default_type": "cascade",
+    "process_room_area_ratio": {
+      "min": 0.40,
+      "max": 0.70,
+      "default": 0.55,
+      "overlap_production_boost": 0.65
+    },
+    "corridor_width_mm": {
+      "preferred": [2000, 3000],
+      "min_allowed": 1500
+    },
+    "airlock_size_mm": {
+      "preferred_w_d": [3000, 3000],
+      "min_passable_w_d": [1500, 1500],
+      "pal_default_area_m2": 12,
+      "mal_default_area_m2": 16
+    },
+    "equipment_spacing_mm": {
+      "between_equipment": 1000,
+      "equipment_to_wall_min": 600,
+      "equipment_to_wall_max": 1200
+    },
+    "ceiling_height_mm": {
+      "default": 3000,
+      "min": 2700,
+      "well_ceiling_threshold_equipment_h_mm": 2700
+    }
+  }
+}

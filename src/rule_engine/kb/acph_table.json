@@ -1,0 +1,54 @@
+{
+  "_source": "GMP Layout Logic_0510 환기횟수 시트 + EU GMP Annex 1",
+  "_unit": "ACPH = Air Changes Per Hour",
+  "grades": {
+    "A": {
+      "airflow_type": "unidirectional",
+      "velocity_m_s": [0.36, 0.54],
+      "acph_min": null,
+      "acph_max": null,
+      "recovery_time_min": null,
+      "note": "단일방향류, 풍속 기준. 회복시간 미해당(지속 유지)."
+    },
+    "B": {
+      "airflow_type": "non_unidirectional",
+      "velocity_m_s": null,
+      "acph_min": 40,
+      "acph_max": 60,
+      "recovery_time_min": [15, 20],
+      "note": "비단일방향류/난류"
+    },
+    "C": {
+      "airflow_type": "non_unidirectional",
+      "velocity_m_s": null,
+      "acph_min": 20,
+      "acph_max": 40,
+      "recovery_time_min": [15, 20],
+      "note": "비단일방향류/난류"
+    },
+    "D": {
+      "airflow_type": "non_unidirectional",
+      "velocity_m_s": null,
+      "acph_min": 6,
+      "acph_max": 20,
+      "recovery_time_min": null,
+      "note": "회복시간 현장 기준"
+    },
+    "CNC": {
+      "airflow_type": "controlled_non_classified",
+      "velocity_m_s": null,
+      "acph_min": 6,
+      "acph_max": 10,
+      "recovery_time_min": null,
+      "note": "최소 환기 수준 유지 (참고치)"
+    },
+    "NC": {
+      "airflow_type": "non_controlled",
+      "velocity_m_s": null,
+      "acph_min": null,
+      "acph_max": null,
+      "recovery_time_min": null,
+      "note": "환기 규제 없음"
+    }
+  }
+}
