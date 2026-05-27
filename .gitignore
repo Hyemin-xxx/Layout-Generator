@@ -11,4 +11,5 @@ output/*.svg
 output/*.png
 output/*.dxf
 output/runs/
+output/scenarios/
 !output/.gitkeep

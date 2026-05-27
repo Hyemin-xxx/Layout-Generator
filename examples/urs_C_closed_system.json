@@ -1,0 +1,43 @@
+{
+  "project_name": "Scenario C — Closed-system mAb 5000L (Grade D main)",
+  "product": {
+    "modality": "mAb",
+    "culture_scale_L": 5000,
+    "n_product_types": 1,
+    "production_mode": "single_batch",
+    "aseptic_filling_onsite": false,
+    "virus_filtration_required": true,
+    "closed_system_main_process": true
+  },
+  "building": {
+    "total_floor_area_m2": 2400,
+    "width_mm": 60000,
+    "depth_mm": 40000,
+    "floor_level": 1,
+    "personnel_entry_clock": 9,
+    "material_inlet_clock": 3,
+    "waste_outlet_clock": 6,
+    "elevator_position_clock": null,
+    "support_area_position_preference": "any"
+  },
+  "flow_policy": {
+    "one_way_flow_required_until": "none",
+    "supply_return_corridor_separate": true,
+    "airlock_default_type": "cascade",
+    "biological_safety_isolation": false
+  },
+  "organization": {
+    "gender_separated_gowning": false,
+    "include_office_onsite": true,
+    "include_toilet_onsite": true,
+    "include_monitoring_room_onsite": true,
+    "include_lobby_onsite": false,
+    "include_lounge_onsite": false
+  },
+  "overrides": {
+    "force_include_rooms": [],
+    "force_exclude_rooms": [],
+    "area_overrides_m2": {},
+    "grade_overrides": {}
+  }
+}

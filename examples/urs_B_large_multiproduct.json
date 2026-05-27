@@ -1,0 +1,43 @@
+{
+  "project_name": "Scenario B — Large mAb 15000L Multi-product (3 SKUs)",
+  "product": {
+    "modality": "mAb",
+    "culture_scale_L": 15000,
+    "n_product_types": 3,
+    "production_mode": "multi_product",
+    "aseptic_filling_onsite": false,
+    "virus_filtration_required": true,
+    "closed_system_main_process": false
+  },
+  "building": {
+    "total_floor_area_m2": 5200,
+    "width_mm": 100000,
+    "depth_mm": 52000,
+    "floor_level": 4,
+    "personnel_entry_clock": 6,
+    "material_inlet_clock": 12,
+    "waste_outlet_clock": 9,
+    "elevator_position_clock": 3,
+    "support_area_position_preference": "near_material_inlet"
+  },
+  "flow_policy": {
+    "one_way_flow_required_until": "virus_filtration",
+    "supply_return_corridor_separate": true,
+    "airlock_default_type": "cascade",
+    "biological_safety_isolation": true
+  },
+  "organization": {
+    "gender_separated_gowning": true,
+    "include_office_onsite": true,
+    "include_toilet_onsite": true,
+    "include_monitoring_room_onsite": true,
+    "include_lobby_onsite": true,
+    "include_lounge_onsite": true
+  },
+  "overrides": {
+    "force_include_rooms": [],
+    "force_exclude_rooms": [],
+    "area_overrides_m2": {},
+    "grade_overrides": {}
+  }
+}

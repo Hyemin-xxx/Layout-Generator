@@ -57,6 +57,7 @@ def render(spec: RuleEngineOutput, layout: Layout) -> str:
     ox, oy = T.CANVAS_PAD, T.CANVAS_PAD
     _emit_z1_minor_grid(s, ox, oy, layout)
     _emit_z2_major_grid(s, ox, oy, layout)
+    _emit_z2b_axes(s, ox, oy, layout)
     _emit_z3_building_outline(s, ox, oy, layout)
 
     _emit_z4_room_fills(s, ox, oy, layout)
@@ -181,6 +182,113 @@ def _emit_z2_major_grid(s: StringIO, ox: float, oy: float, layout: Layout) -> No
 
 
 # ──────────────────────────────────────────────────────────────────────
+# z2b architectural grid axes (X1..Xn top, Y1..Yn left)
+# ──────────────────────────────────────────────────────────────────────
+def _emit_z2b_axes(s: StringIO, ox: float, oy: float, layout: Layout) -> None:
+    """Architectural grid axes outside building bbox (top X, left Y)
+    with dimension chains showing inter-axis distances in meters.
+    """
+    bw = T.mm(layout.building_w_mm)
+    bh = T.mm(layout.building_h_mm)
+    step = T.mm(T.MM_MAJOR)
+    step_m = T.MM_MAJOR / 1000  # meters between adjacent axes
+    R = 9   # circle radius for axis bubble
+    OFF = 36  # distance from building edge to axis bubble center
+
+    axis_stroke = T.NEUTRAL["600"]
+    text_fill = T.NEUTRAL["800"]
+    tick_stroke = T.NEUTRAL["400"]
+
+    s.write('<g>\n')
+
+    # ── X axis (top) ──
+    axis_y = oy - OFF
+    dim_y = oy - 14  # dimension chain just above building outline
+    xs = []
+    x = ox
+    n = 1
+    while x <= ox + bw + 0.5:
+        xs.append(x)
+        # tick line: bubble bottom → dim chain → building top edge
+        s.write(
+            f'<line x1="{x:.2f}" y1="{axis_y + R}" x2="{x:.2f}" y2="{oy}" '
+            f'stroke="{tick_stroke}" stroke-width="0.5" stroke-dasharray="2 2"/>\n'
+        )
+        # bubble
+        s.write(
+            f'<circle cx="{x:.2f}" cy="{axis_y}" r="{R}" fill="{T.NEUTRAL["0"]}" '
+            f'stroke="{axis_stroke}" stroke-width="0.8"/>\n'
+        )
+        s.write(
+            f'<text x="{x:.2f}" y="{axis_y + 3.5:.2f}" text-anchor="middle" '
+            f'font-size="9" font-family={_q(T.FONT_MONO)} fill="{text_fill}">X{n}</text>\n'
+        )
+        n += 1
+        x += step
+
+    # dimension chain between adjacent X axes
+    for i in range(len(xs) - 1):
+        x1, x2 = xs[i], xs[i + 1]
+        mid = (x1 + x2) / 2
+        s.write(
+            f'<line x1="{x1 + 2:.2f}" y1="{dim_y}" x2="{x2 - 2:.2f}" y2="{dim_y}" '
+            f'stroke="{tick_stroke}" stroke-width="0.5"/>\n'
+        )
+        # arrowheads (small triangles at both ends)
+        s.write(
+            f'<path d="M {x1:.2f} {dim_y} l 4 -2 l 0 4 z" fill="{tick_stroke}"/>\n'
+            f'<path d="M {x2:.2f} {dim_y} l -4 -2 l 0 4 z" fill="{tick_stroke}"/>\n'
+        )
+        s.write(
+            f'<text x="{mid:.2f}" y="{dim_y - 3:.2f}" text-anchor="middle" '
+            f'font-size="8" font-family={_q(T.FONT_MONO)} fill="{text_fill}">{step_m:.2f}m</text>\n'
+        )
+
+    # ── Y axis (left) ──
+    axis_x = ox - OFF
+    dim_x = ox - 14
+    ys = []
+    y = oy
+    n = 1
+    while y <= oy + bh + 0.5:
+        ys.append(y)
+        s.write(
+            f'<line x1="{axis_x + R}" y1="{y:.2f}" x2="{ox}" y2="{y:.2f}" '
+            f'stroke="{tick_stroke}" stroke-width="0.5" stroke-dasharray="2 2"/>\n'
+        )
+        s.write(
+            f'<circle cx="{axis_x}" cy="{y:.2f}" r="{R}" fill="{T.NEUTRAL["0"]}" '
+            f'stroke="{axis_stroke}" stroke-width="0.8"/>\n'
+        )
+        s.write(
+            f'<text x="{axis_x}" y="{y + 3.5:.2f}" text-anchor="middle" '
+            f'font-size="9" font-family={_q(T.FONT_MONO)} fill="{text_fill}">Y{n}</text>\n'
+        )
+        n += 1
+        y += step
+
+    for i in range(len(ys) - 1):
+        y1, y2 = ys[i], ys[i + 1]
+        mid = (y1 + y2) / 2
+        s.write(
+            f'<line x1="{dim_x}" y1="{y1 + 2:.2f}" x2="{dim_x}" y2="{y2 - 2:.2f}" '
+            f'stroke="{tick_stroke}" stroke-width="0.5"/>\n'
+        )
+        s.write(
+            f'<path d="M {dim_x} {y1:.2f} l -2 4 l 4 0 z" fill="{tick_stroke}"/>\n'
+            f'<path d="M {dim_x} {y2:.2f} l -2 -4 l 4 0 z" fill="{tick_stroke}"/>\n'
+        )
+        # rotated text so it reads vertically
+        s.write(
+            f'<text x="{dim_x - 3:.2f}" y="{mid:.2f}" text-anchor="middle" '
+            f'font-size="8" font-family={_q(T.FONT_MONO)} fill="{text_fill}" '
+            f'transform="rotate(-90 {dim_x - 3:.2f} {mid:.2f})">{step_m:.2f}m</text>\n'
+        )
+
+    s.write('</g>\n')
+
+
+# ──────────────────────────────────────────────────────────────────────
 # z3 building outline
 # ──────────────────────────────────────────────────────────────────────
 def _emit_z3_building_outline(s: StringIO, ox: float, oy: float, layout: Layout) -> None:
@@ -273,6 +381,30 @@ def _emit_z6_doors(s: StringIO, ox: float, oy: float, layout: Layout) -> None:
 # ──────────────────────────────────────────────────────────────────────
 # z7 airlocks
 # ──────────────────────────────────────────────────────────────────────
+def _airlock_triangle_path(x: float, y: float, w: float, h: float, side: str) -> str:
+    """Solid swing-direction triangle pointing INTO the connected room."""
+    size = min(w, h) * 0.55
+    if side == "north":
+        # AL above room → tip points down (south)
+        cx = x + w / 2
+        return f"M {cx - size:.2f} {y + h - size * 1.4:.2f} L {cx + size:.2f} {y + h - size * 1.4:.2f} L {cx:.2f} {y + h - 1:.2f} Z"
+    if side == "south":
+        # AL below room → tip points up (north)
+        cx = x + w / 2
+        return f"M {cx - size:.2f} {y + size * 1.4:.2f} L {cx + size:.2f} {y + size * 1.4:.2f} L {cx:.2f} {y + 1:.2f} Z"
+    if side == "east":
+        # AL right of room → tip points left (west)
+        cy = y + h / 2
+        return f"M {x + size * 1.4:.2f} {cy - size:.2f} L {x + size * 1.4:.2f} {cy + size:.2f} L {x + 1:.2f} {cy:.2f} Z"
+    if side == "west":
+        # AL left of room → tip points right (east)
+        cy = y + h / 2
+        return f"M {x + w - size * 1.4:.2f} {cy - size:.2f} L {x + w - size * 1.4:.2f} {cy + size:.2f} L {x + w - 1:.2f} {cy:.2f} Z"
+    # inline (CAL/PAL/MAL in supply corridor) — diagonal east-pointing
+    cx, cy = x + w / 2, y + h / 2
+    return f"M {cx - size:.2f} {cy - size:.2f} L {cx - size:.2f} {cy + size:.2f} L {cx + size:.2f} {cy:.2f} Z"
+
+
 def _emit_z7_airlocks(s: StringIO, ox: float, oy: float, layout: Layout) -> None:
     s.write('<g>\n')
     for pa in layout.airlocks.values():
@@ -281,24 +413,35 @@ def _emit_z7_airlocks(s: StringIO, ox: float, oy: float, layout: Layout) -> None
         fill = _fill_for(grade)
         opacity = T.GRADE[grade]["transparency_pct"] / 100 if grade not in ("A", "CNC") else 1.0
         border = T.GRADE[grade]["border"]
-        # AL은 더 진한 border + 점선
+        # AL box (solid border, no dashes — architectural style)
         s.write(
             f'<rect x="{x:.2f}" y="{y:.2f}" width="{w:.2f}" height="{h:.2f}" '
             f'fill="{fill}" fill-opacity="{opacity:.2f}" '
-            f'stroke="{border}" stroke-width="{T.STROKE["inner_wall"] + 0.5}" stroke-dasharray="3 2"/>\n'
+            f'stroke="{T.NEUTRAL["900"]}" stroke-width="{T.STROKE["inner_wall"]}"/>\n'
         )
-        # AL 타입 라벨 (작게)
+        # Solid black swing triangle pointing into connected room
+        tri_path = _airlock_triangle_path(x, y, w, h, pa.side)
         s.write(
-            f'<text x="{x + w/2:.2f}" y="{y + h/2 + 3:.2f}" '
-            f'text-anchor="middle" font-size="{T.TEXT["xs"]}" '
-            f'fill="{T.GRADE[grade]["label"]}" font-family={_q(T.FONT_MONO)}>'
+            f'<path d="{tri_path}" fill="{T.NEUTRAL["900"]}" '
+            f'stroke="{T.NEUTRAL["900"]}" stroke-width="0.5" stroke-linejoin="miter"/>\n'
+        )
+        # AL type label (top-left, small)
+        s.write(
+            f'<text x="{x + 2:.2f}" y="{y + 9:.2f}" font-size="{T.TEXT["xs"]}" '
+            f'fill="{T.NEUTRAL["900"]}" font-family={_q(T.FONT_MONO)} font-weight="600">'
             f'{_esc(pa.airlock.type)}</text>\n'
         )
-        # flow_type 표시 (sink/bubble만 별도 marker)
+        # flow_type indicator (sink ▼ / bubble ▲) for non-cascade
         if pa.airlock.flow_type == "sink":
-            s.write(f'<text x="{x + w - 2:.2f}" y="{y + 9:.2f}" text-anchor="end" font-size="8" fill="{T.SEMANTIC["info"]}">▼</text>\n')
+            s.write(
+                f'<text x="{x + w - 2:.2f}" y="{y + 9:.2f}" text-anchor="end" font-size="8" '
+                f'fill="{T.SEMANTIC["info"]}">▼</text>\n'
+            )
         elif pa.airlock.flow_type == "bubble":
-            s.write(f'<text x="{x + w - 2:.2f}" y="{y + 9:.2f}" text-anchor="end" font-size="8" fill="{T.SEMANTIC["info"]}">▲</text>\n')
+            s.write(
+                f'<text x="{x + w - 2:.2f}" y="{y + 9:.2f}" text-anchor="end" font-size="8" '
+                f'fill="{T.SEMANTIC["info"]}">▲</text>\n'
+            )
     s.write('</g>\n')
 
 
