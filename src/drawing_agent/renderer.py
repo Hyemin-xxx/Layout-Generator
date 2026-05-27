@@ -478,7 +478,7 @@ def _emit_z8_equipment(s: StringIO, ox: float, oy: float, layout: Layout) -> Non
         s.write(
             f'<g clip-path="url(#clip_{pr.room.id})" '
             f'fill="{T.NEUTRAL["0"]}" stroke="{EQUIPMENT_STROKE}" '
-            f'stroke-width="{T.STROKE["equipment"] + 0.3}">\n'
+            f'stroke-width="{(T.STROKE["equipment"] + 0.3) / 2}">\n'
         )
         for pe in pr.equipment:
             x, y, w, h = _r(pe.rect, ox, oy)
