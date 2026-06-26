@@ -35,7 +35,7 @@ Sungkyunkwan University, Seoul, Korea (Student ID: 2021312709)
 | GMP-LayGen | R-2026-0661-KR-1 | Filed / Submitted (제출) | 2026-06-25 | 정종필 (대표창작자) |
 
 ### Publications — Individual / Team List (논문 — 개인별·팀별 리스트)
-| Title | Type | Status | Venue |
+| Title | Type |
 |---|---|---|---|
 | GMP-LayGen: URS 기반 GMP 준수 바이오의약품 제조시설 개념 레이아웃 자동 생성 시스템 | Team |
 
