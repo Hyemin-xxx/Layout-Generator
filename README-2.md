@@ -35,9 +35,7 @@ Sungkyunkwan University, Seoul, Korea (Student ID: 2021312709)
 | GMP-LayGen | R-2026-0661-KR-1 | Filed / Submitted (제출) | 2026-06-25 | 정종필 (대표창작자) |
 
 ### Publications — Individual / Team List (논문 — 개인별·팀별 리스트)
-| Title | Type |
-|---|---|---|---|
-| GMP-LayGen: URS 기반 GMP 준수 바이오의약품 제조시설 개념 레이아웃 자동 생성 시스템 | Team |
+Title : GMP-LayGen: URS 기반 GMP 준수 바이오의약품 제조시설 개념 레이아웃 자동 생성 시스템
 
 **Abstract (국문 초록):**
 > 바이오의약품 GMP(Good Manufacturing Practice) 제조시설의 구축을 위해서 가장 핵심적인 단계 중 하나는 최적의 개념 레이아웃(Conceptual Layout)을 도출하는 것이다.
