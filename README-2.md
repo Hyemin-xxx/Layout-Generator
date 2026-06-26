@@ -37,9 +37,7 @@ Sungkyunkwan University, Seoul, Korea (Student ID: 2021312709)
 ### Publications — Individual / Team List (논문 — 개인별·팀별 리스트)
 | Title | Type | Status | Venue |
 |---|---|---|---|
-| GMP-LayGen: URS 기반 GMP 준수 바이오의약품 제조시설 개념 레이아웃 자동 생성 시스템 *(가제, 제목 확정 필요)* | Team | In preparation (작성 중) | _TBD_ |
-
-> 논문 제목은 초록을 토대로 임시로 붙인 가제입니다. 정확한 제목, 투고 예정 학회/저널, 공동저자 명단을 알려주시면 바로 수정하겠습니다.
+| GMP-LayGen: URS 기반 GMP 준수 바이오의약품 제조시설 개념 레이아웃 자동 생성 시스템 | Team |
 
 **Abstract (국문 초록):**
 > 바이오의약품 GMP(Good Manufacturing Practice) 제조시설의 구축을 위해서 가장 핵심적인 단계 중 하나는 최적의 개념 레이아웃(Conceptual Layout)을 도출하는 것이다.
